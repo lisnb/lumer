@@ -63,3 +63,4 @@ Debug/
 *.sw[opq]
 *.log
 _workspace
+*.sqlite3

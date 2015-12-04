@@ -3,7 +3,7 @@
 # @Author: LiSnB
 # @Date:   2015-12-03 20:33:43
 # @Last Modified by:   LiSnB
-# @Last Modified time: 2015-12-04 10:44:24
+# @Last Modified time: 2015-12-04 18:38:05
 
 import random
 import string
@@ -83,7 +83,31 @@ def generate_plan(cnt, wkc=7):
 
     print sum(len(x) for x in weekdays)
 
+from django.db import models
 
+import json
+from datetime import datetime, timedelta
+# Create your models here.
+
+class Plan(models.Model):
+    """The plan"""
+    PLAN_CHOICES = (
+        (1, '套餐1'),
+        (2, '套餐2'),
+        (3, '套餐3'),
+        (4, '套餐4'),
+        (5, '套餐5'),
+        (6, '套餐6'),
+        (7, '套餐7'),
+    )
+    plan_set = models.CharField(max_length=1, choices = PLAN_CHOICES)
+    name = models.CharField(max_length=60)
+    duration = models.DurationField(default = timedelta(28))
+    weekdays = model.CharField(max_length = 100)
+    def setweekdays(self, x):
+        self.weekdays = json.dumps(x)
+    def getweekdays(self):
+        return json.loads(self.weekdays)
 if __name__ == '__main__':
     # for card in generate_customer(10):
         # print card
