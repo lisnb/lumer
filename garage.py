@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # @Author: LiSnB
 # @Date:   2015-12-03 20:33:43
-# @Last Modified by:   lisnb
-# @Last Modified time: 2015-12-04 09:46:08
+# @Last Modified by:   LiSnB
+# @Last Modified time: 2015-12-04 10:44:24
 
 import random
 import string
@@ -87,4 +87,4 @@ def generate_plan(cnt, wkc=7):
 if __name__ == '__main__':
     # for card in generate_customer(10):
         # print card
-    generate_plan(100)
+    generate_plan(1000)
